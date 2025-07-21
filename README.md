@@ -1,3 +1,3 @@
-# stackblitz-table-docs
+# Regressões explicadas com Python
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/osvaldojeronymo/stackblitz-table-docs)
+A proposta é elaborar um material que integre comparativos de regressões à uma série de scripts que inclua erros comuns, causas e generalizações.
