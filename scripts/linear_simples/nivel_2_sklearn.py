@@ -5,16 +5,7 @@ Regressão Linear usando sklearn
 import numpy as np
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
-"""
-Objetivo: Estimar ou entender o impacto das características do veículo 
-sobre as emissões de CO₂.
-Perguntas orientadoras:
-a.Existe uma relação linear entre o tamanho do motor (Engine Size) e as emissões
-de CO₂?
-b.O número de cilindros (Cylinders) impacta linearmente as emissões?
-c.Quais variáveis explicam melhor as emissões em um modelo de regressão linear
-múltipla?
-"""
+
 # Dados de exemplo (altura em cm, peso em kg)
 x = np.array([160, 165, 170, 175, 180]).reshape(-1, 1)
 y = np.array([60, 65, 70, 75, 80])
