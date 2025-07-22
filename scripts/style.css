@@ -1,0 +1,344 @@
+/*
+  style.css
+  Estilos para navegação, layout e página inicial estilo navegador
+  Autor: Osvaldo Jeronymo Neto
+  Última atualização: 2025-07-16
+  Descrição: CSS modular, responsivo e acessível para documentação técnica.
+*/
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  background: #f8f9fa;
+}
+
+body.homepage {
+  background: url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1800&q=80') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav {
+  width: 100%;
+  background-color: transparent;
+  color: #202124;
+  height: auto;
+  padding-top: 0;
+  position: static;
+  overflow-y: visible;
+  box-shadow: none;
+}
+
+nav h2 {
+  color: #4285f4;
+  font-size: 20px;
+  margin-left: 0;
+  letter-spacing: 0.5px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+nav ul li {
+  padding: 10px 24px;
+  cursor: pointer;
+  color: #4285f4;
+  transition: background 0.3s, color 0.3s;
+  border-radius: 8px;
+  outline: none;
+  font-weight: 500;
+  border: none;
+}
+
+nav ul li:focus, nav ul li:hover {
+  background-color: #e3f0fd;
+  color: #3367d6;
+}
+
+.active {
+  background-color: #4285f4;
+  color: #fff !important;
+}
+
+.content {
+  margin-left: 0;
+  padding: 0;
+  flex: 1;
+  min-height: 100vh;
+}
+
+.center-container {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  padding: 32px 0;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.search-bar input {
+  width: 70%;
+  padding: 12px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 24px 0 0 24px;
+  outline: none;
+  background: #fff;
+}
+
+.search-bar button {
+  padding: 12px 20px;
+  font-size: 18px;
+  border: none;
+  background: #4285f4;
+  color: #fff;
+  border-radius: 0 24px 24px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.search-bar button:hover {
+  background: #3367d6;
+}
+
+.shortcut-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.shortcut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  width: 110px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 16px 0 8px 0;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.shortcut:hover, .shortcut:focus {
+  box-shadow: 0 4px 16px rgba(66,133,244,0.15);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.sklearn-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.shortcut span {
+  font-size: 15px;
+  margin-top: 2px;
+}
+
+.tables-section {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 32px 24px;
+  max-width: 900px;
+  margin: 32px auto;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 10px 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
+
+code {
+  background-color: #eee;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 95%;
+}
+
+@media (max-width: 800px) {
+  .center-container, .tables-section {
+    max-width: 98vw;
+    padding: 12px 2vw;
+  }
+  table, th, td {
+    font-size: 14px;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Acessibilidade: foco visível */
+nav ul li:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: -2px;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 32px auto;
+  padding: 16px 24px 0 24px;
+  box-sizing: border-box;
+}
+
+.menu-icon {
+  font-size: 32px;
+  cursor: pointer;
+  color: #333;
+  background: #fff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s;
+}
+.menu-icon:focus, .menu-icon:hover {
+  box-shadow: 0 4px 16px rgba(66,133,244,0.15);
+}
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 6px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+#themeSelect {
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  background: #f8f9fa;
+}
+
+body.dark-mode {
+  background: linear-gradient(120deg, #232526 0%, #414345 100%);
+  color: #e8eaed;
+}
+body.dark-mode.homepage {
+  background: url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1800&q=80') no-repeat center center fixed;
+  background-size: cover;
+  filter: brightness(0.6) grayscale(0.2);
+}
+body.dark-mode .main-header,
+body.dark-mode .theme-switcher,
+body.dark-mode .menu-icon,
+body.dark-mode .center-container,
+body.dark-mode .tables-section {
+  background: #232526 !important;
+  color: #e8eaed !important;
+  box-shadow: none;
+}
+body.dark-mode .search-bar input {
+  background: #333;
+  color: #e8eaed;
+  border: 1px solid #555;
+}
+body.dark-mode .search-bar button {
+  background: #8ab4f8;
+  color: #232526;
+}
+body.dark-mode .shortcut {
+  background: #333;
+  color: #e8eaed;
+}
+body.dark-mode .sklearn-icon {
+  background: #333;
+}
+body.dark-mode nav ul li {
+  color: #8ab4f8;
+  background: #232526;
+}
+body.dark-mode nav ul li.active {
+  background: #8ab4f8;
+  color: #232526 !important;
+}
+body.dark-mode th {
+  background: #333;
+  color: #e8eaed;
+}
+body.dark-mode td {
+  background: #232526;
+  color: #e8eaed;
+}
+body.dark-mode code {
+  background: #333;
+  color: #8ab4f8;
+}
+.center-container, .tables-section, .main-header, .theme-switcher, .menu-icon {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(2px);
+}
+body.dark-mode .center-container, body.dark-mode .tables-section, body.dark-mode .main-header, body.dark-mode .theme-switcher, body.dark-mode .menu-icon {
+  background: rgba(35,37,38,0.85) !important;
+  color: #e8eaed !important;
+}

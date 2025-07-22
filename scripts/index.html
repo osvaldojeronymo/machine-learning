@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página Inicial - Scikit-Learn Map</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="homepage">
+  <header class="main-header">
+    <div class="menu-icon" tabindex="0" aria-label="Menu" title="Menu">
+      <span>&#9776;</span>
+    </div>
+    <div class="theme-switcher">
+      <label for="themeSelect">Modo:</label>
+      <img id="themeIcon" src="https://cdn-icons-png.flaticon.com/512/702/702471.png" alt="Ícone modo claro/escuro" style="width:32px;height:32px;vertical-align:middle;margin-right:8px;">
+      <select id="themeSelect">
+        <option value="light">Claro</option>
+        <option value="dark">Escuro</option>
+      </select>
+    </div>
+    <div class="weather-location" id="weatherLocation" style="margin-left:24px;font-size:16px;color:#333;"></div>
+  </header>
+  <div class="center-container">
+    <form class="search-bar" onsubmit="return false;">
+      <input type="text" placeholder="Pesquisar ou inserir endereço Web" aria-label="Pesquisar">
+      <button type="submit">🔍</button>
+    </form>
+    <div class="shortcut-grid">
+      <button id="sklearnBtn" class="shortcut sklearn-btn" aria-label="Abrir tabelas Scikit-Learn">
+        <img src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" alt="Scikit-Learn" class="sklearn-icon" />
+        <span>Scikit-Learn</span>
+      </button>
+      <!-- Adicione mais atalhos se quiser -->
+    </div>
+    <div id="tablesSection" class="tables-section" style="display:none;">
+      <nav>
+        <h2>📚 Navegação</h2>
+        <ul>
+          <li class="active" onclick="showSection('parte1')">📊 Parte 1 – Tabela</li>
+          <li onclick="showSection('parte2')">🗺️ Parte 2 – Mapa</li>
+        </ul>
+      </nav>
+      <div class="content">
+        <div id="parte1" class="section active">
+          <h1>📊 Parte 1 – Tabela de Algoritmos por Tipo de Aprendizado</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Tarefa</th>
+                <th>Classe</th>
+                <th>Módulo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td rowspan="6"><b>Supervisionado</b></td><td>Classificação</td><td><code>LogisticRegression</code></td><td><code>linear_model</code></td></tr>
+              <tr><td></td><td><code>SVC, NuSVC, LinearSVC</code></td><td><code>svm</code></td></tr>
+              <tr><td></td><td><code>KNeighborsClassifier</code></td><td><code>neighbors</code></td></tr>
+              <tr><td></td><td><code>DecisionTreeClassifier</code></td><td><code>tree</code></td></tr>
+              <tr><td></td><td><code>RandomForestClassifier</code></td><td><code>ensemble</code></td></tr>
+              <tr><td></td><td><code>MLPClassifier</code></td><td><code>neural_network</code></td></tr>
+              <tr><td rowspan="6"></td><td>Regressão</td><td><code>LinearRegression</code></td><td><code>linear_model</code></td></tr>
+              <tr><td></td><td><code>SVR, NuSVR</code></td><td><code>svm</code></td></tr>
+              <tr><td></td><td><code>KNeighborsRegressor</code></td><td><code>neighbors</code></td></tr>
+              <tr><td></td><td><code>DecisionTreeRegressor</code></td><td><code>tree</code></td></tr>
+              <tr><td></td><td><code>RandomForestRegressor</code></td><td><code>ensemble</code></td></tr>
+              <tr><td></td><td><code>MLPRegressor</code></td><td><code>neural_network</code></td></tr>
+              <tr><td rowspan="5"><b>Não Supervisionado</b></td><td>Clustering</td><td><code>KMeans, DBSCAN</code></td><td><code>cluster</code></td></tr>
+              <tr><td></td><td><code>GaussianMixture</code></td><td><code>mixture</code></td></tr>
+              <tr><td>Redução</td><td><code>PCA, TSNE</code></td><td><code>decomposition / manifold</code></td></tr>
+              <tr><td>Modelos de Densidade</td><td><code>KernelDensity</code></td><td><code>neighbors</code></td></tr>
+              <tr><td>—</td><td><code>Isomap, LLE</code></td><td><code>manifold</code></td></tr>
+              <tr><td><b>Semi-supervisionado</b></td><td>Propagação</td><td><code>LabelPropagation</code></td><td><code>semi_supervised</code></td></tr>
+              <tr><td><b>Pré-processamento</b></td><td>Escalonamento</td><td><code>StandardScaler</code></td><td><code>preprocessing</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="parte2" class="section">
+          <h1>🗺️ Parte 2 – Mapa de Escolha de Estimadores</h1>
+          <p><strong>1. Qual é o seu problema?</strong></p>
+          <ul>
+            <li>🎯 Prever algo? → Supervisionado</li>
+            <li>🧩 Agrupar ou reduzir dados? → Não Supervisionado</li>
+          </ul>
+          <p><strong>2. Se for Supervisionado:</strong></p>
+          <ul>
+            <li>Classificação:
+              <ul>
+                <li>Poucos dados? → <code>KNeighborsClassifier</code></li>
+                <li>Muitos dados?
+                  <ul>
+                    <li>Lineares? → <code>LogisticRegression</code></li>
+                    <li>Não lineares? → <code>RandomForestClassifier</code>, <code>MLPClassifier</code></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Regressão:
+              <ul>
+                <li>Lineares? → <code>LinearRegression</code></li>
+                <li>Não lineares? → <code>SVR</code>, <code>GradientBoostingRegressor</code></li>
+              </ul>
+            </li>
+          </ul>
+          <p><strong>3. Se for Não Supervisionado:</strong></p>
+          <ul>
+            <li>Clustering: <code>KMeans</code>, <code>DBSCAN</code>, <code>GaussianMixture</code></li>
+            <li>Redução de Dimensão: <code>PCA</code>, <code>TSNE</code></li>
+          </ul>
+          <p><strong>4. Semi-supervisionado:</strong> <code>LabelPropagation</code>, <code>LabelSpreading</code></p>
+          <p><strong>5. Dica:</strong> Sempre use <code>StandardScaler</code> e <code>Pipeline</code> para pré-processamento.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('sklearnBtn').onclick = function() {
+      document.getElementById('tablesSection').style.display = 'block';
+      document.querySelector('.shortcut-grid').style.display = 'none';
+      document.querySelector('.search-bar').style.display = 'none';
+    };
+    document.getElementById('themeSelect').onchange = function() {
+      var themeIcon = document.getElementById('themeIcon');
+      if (this.value === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeIcon.src = 'https://cdn-icons-png.flaticon.com/512/702/702471.png'; // ícone escuro
+      } else {
+        document.body.classList.remove('dark-mode');
+        themeIcon.src = 'https://cdn-icons-png.flaticon.com/512/702/702472.png'; // ícone claro
+      }
+    };
+    // Localização e temperatura
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        fetch(`https://wttr.in/${lat},${lon}?format=%l:+%C+%t`)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('weatherLocation').textContent = data;
+          });
+      });
+    }
+  </script>
+</body>
+</html>
